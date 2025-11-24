@@ -288,3 +288,34 @@ See the `LICENSE` file for more information.
 ### 🏥 Built with ❤️ for Modern Healthcare Management
 
 Delivering secure, scalable healthcare APIs with cutting-edge technology.
+
+
+
+
+### curl -X POST \
+  http://localhost:8000/api/appointments \
+  -H "Authorization: Bearer <token_jwt>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "patient_id": 1,
+    "doctor_id": 2,
+    "date": "2025-12-01T10:00:00",
+    "reason": "Consulta preventiva"
+  }'
+
+### import requests
+
+   url = "http://localhost:8000/api/appointments"
+   headers = {
+    "Authorization": "Bearer <token_jwt>",
+    "Content-Type": "application/json"
+   }  
+   payload = {
+    "patient_id": 1,
+    "doctor_id": 2,
+    "date": "2025-12-01T10:00:00",
+    "reason": "Consulta preventiva"
+   }
+   response = requests.post(url, json=payload, headers=headers)
+   print(response.status_code, response.json())
+
